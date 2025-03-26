@@ -1,0 +1,9 @@
+﻿global using MotorCycleRentail.Common.Interfaces;
+global using MotorCycleRentail.Dto.Request;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.Logging;
+global using MotorCycleRentail.Application.Services;
+global using MotorCycleRentail.Domain.Entities;
+global using MotorCycleRentail.Domain.RepositoriesInterfaces;
+global using MotorCycleRentail.Domain.Validations;
+global using MotorCycleRentail.Dto.Response;

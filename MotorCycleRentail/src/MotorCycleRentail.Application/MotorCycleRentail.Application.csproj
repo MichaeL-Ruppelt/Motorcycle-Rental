@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.4.1-develop.2245" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MotorCycleRentail.Common\MotorCycleRentail.Common.csproj" />
+    <ProjectReference Include="..\MotorCycleRentail.Domain\MotorCycleRentail.Domain.csproj" />
+    <ProjectReference Include="..\MotorCycleRentail.Dto\MotorCycleRentail.Dto.csproj" />
+  </ItemGroup>
+
 </Project>
