@@ -1,0 +1,13 @@
+﻿global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata;
+global using Microsoft.EntityFrameworkCore.Storage;
+global using Microsoft.Extensions.Configuration;
+global using MotorCycleRentail.Common.Interfaces;
+global using System.Linq.Expressions;
+global using MotorCycleRentail.Domain.Entities;
+global using MotorCycleRentail.Domain.RepositoriesInterfaces;
+global using MotorCycleRentail.Infra.Persistence;
+global using MotorCycleRentail.Infra.Persistence.Sql.Repositories;
+global using AutoMapper;
+global using System.Diagnostics.CodeAnalysis;
+global using MotorCycleRentail.Dto.Response.Motorcycle;
