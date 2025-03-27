@@ -1,0 +1,443 @@
+{
+	"info": {
+		"_postman_id": "9293c865-1004-4940-a27e-db93540f682c",
+		"name": "MotorcycleRental",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12968887"
+	},
+	"item": [
+		{
+			"name": "1 - Criar Entregador",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik1ldVNlcnZpZG9yIiwiYXVkIjoiTWluaGFBcGlDbGllbnRlcyIsImV4cCI6MTcwMDAwMDAwMH0.yJjxOstBkg3HbMwv6tfEDmPBH1yHVGJdJxV8iHkRM1U",
+						"description": "Valid",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik91dHJvU2VydmVyIiwiYXVkIjoiT3V0cmFzQXVkaWVuY2lhcyIsImV4cCI6MTcwMDAwMDAwMH0.TQws0tlyrLEUzEF4FZz1cVhOYN9u03TIXVHzTBLZ7fQ",
+						"description": "Invalid",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identificador\": \"{{entregador-identificador}}\",\r\n  \"nome\": \"Asdrubal\",\r\n  \"cnpj\": \"50575560000142\",\r\n  \"data_nascimento\": \"1986-01-01T00:00:00.00Z\",\r\n  \"numero_cnh\": \"25733205926\",\r\n  \"tipo_cnh\": \"AB\",\r\n  \"imagem_cnh\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/entregadores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"entregadores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 - Atualizar imagem cnh",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik1ldVNlcnZpZG9yIiwiYXVkIjoiTWluaGFBcGlDbGllbnRlcyIsImV4cCI6MTcwMDAwMDAwMH0.yJjxOstBkg3HbMwv6tfEDmPBH1yHVGJdJxV8iHkRM1U",
+						"description": "Valid",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik91dHJvU2VydmVyIiwiYXVkIjoiT3V0cmFzQXVkaWVuY2lhcyIsImV4cCI6MTcwMDAwMDAwMH0.TQws0tlyrLEUzEF4FZz1cVhOYN9u03TIXVHzTBLZ7fQ",
+						"description": "Invalid",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"imagem_cnh\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/entregadores{{entregador-identificador}}/cnh",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"entregadores{{entregador-identificador}}",
+						"cnh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 - Cadastrar moto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik1ldVNlcnZpZG9yIiwiYXVkIjoiTWluaGFBcGlDbGllbnRlcyIsImV4cCI6MTcwMDAwMDAwMH0.yJjxOstBkg3HbMwv6tfEDmPBH1yHVGJdJxV8iHkRM1U",
+						"description": "Valid",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik91dHJvU2VydmVyIiwiYXVkIjoiT3V0cmFzQXVkaWVuY2lhcyIsImV4cCI6MTcwMDAwMDAwMH0.TQws0tlyrLEUzEF4FZz1cVhOYN9u03TIXVHzTBLZ7fQ",
+						"description": "Invalid",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identificador\": \"{{moto-identificador}}\",\r\n  \"ano\": 2024,\r\n  \"modelo\": \"intruder125\",\r\n  \"placa\": \"KPO-8708\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/motos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"motos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4 - Consultar todas Motos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik1ldVNlcnZpZG9yIiwiYXVkIjoiTWluaGFBcGlDbGllbnRlcyIsImV4cCI6MTcwMDAwMDAwMH0.yJjxOstBkg3HbMwv6tfEDmPBH1yHVGJdJxV8iHkRM1U",
+						"description": "Valid",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik91dHJvU2VydmVyIiwiYXVkIjoiT3V0cmFzQXVkaWVuY2lhcyIsImV4cCI6MTcwMDAwMDAwMH0.TQws0tlyrLEUzEF4FZz1cVhOYN9u03TIXVHzTBLZ7fQ",
+						"description": "Invalid",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/motos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"motos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 - Atualizar Placa",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik1ldVNlcnZpZG9yIiwiYXVkIjoiTWluaGFBcGlDbGllbnRlcyIsImV4cCI6MTcwMDAwMDAwMH0.yJjxOstBkg3HbMwv6tfEDmPBH1yHVGJdJxV8iHkRM1U",
+						"description": "Valid",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik91dHJvU2VydmVyIiwiYXVkIjoiT3V0cmFzQXVkaWVuY2lhcyIsImV4cCI6MTcwMDAwMDAwMH0.TQws0tlyrLEUzEF4FZz1cVhOYN9u03TIXVHzTBLZ7fQ",
+						"description": "Invalid",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"placa\": \"BIY-9719\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/motos/{{moto-identificador}}/placa",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"motos",
+						"{{moto-identificador}}",
+						"placa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6 - Consultar moto pelo identificador",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik1ldVNlcnZpZG9yIiwiYXVkIjoiTWluaGFBcGlDbGllbnRlcyIsImV4cCI6MTcwMDAwMDAwMH0.yJjxOstBkg3HbMwv6tfEDmPBH1yHVGJdJxV8iHkRM1U",
+						"description": "Valid",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik91dHJvU2VydmVyIiwiYXVkIjoiT3V0cmFzQXVkaWVuY2lhcyIsImV4cCI6MTcwMDAwMDAwMH0.TQws0tlyrLEUzEF4FZz1cVhOYN9u03TIXVHzTBLZ7fQ",
+						"description": "Invalid",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/motos/{{moto-identificador}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"motos",
+						"{{moto-identificador}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7 - Remover Moto",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik1ldVNlcnZpZG9yIiwiYXVkIjoiTWluaGFBcGlDbGllbnRlcyIsImV4cCI6MTcwMDAwMDAwMH0.yJjxOstBkg3HbMwv6tfEDmPBH1yHVGJdJxV8iHkRM1U",
+						"description": "Valid",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik91dHJvU2VydmVyIiwiYXVkIjoiT3V0cmFzQXVkaWVuY2lhcyIsImV4cCI6MTcwMDAwMDAwMH0.TQws0tlyrLEUzEF4FZz1cVhOYN9u03TIXVHzTBLZ7fQ",
+						"description": "Invalid",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/motos/{{moto-identificador}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"motos",
+						"{{moto-identificador}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8 - Criar Aluguel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik1ldVNlcnZpZG9yIiwiYXVkIjoiTWluaGFBcGlDbGllbnRlcyIsImV4cCI6MTcwMDAwMDAwMH0.yJjxOstBkg3HbMwv6tfEDmPBH1yHVGJdJxV8iHkRM1U",
+						"description": "Valid",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik91dHJvU2VydmVyIiwiYXVkIjoiT3V0cmFzQXVkaWVuY2lhcyIsImV4cCI6MTcwMDAwMDAwMH0.TQws0tlyrLEUzEF4FZz1cVhOYN9u03TIXVHzTBLZ7fQ",
+						"description": "Invalid",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"entregador_id\": \"{{entregador-identificador}}\",\r\n  \"moto_id\": \"{{moto-identificador}}\",\r\n  \"data_inicio\": \"2025-03-27T00:00:00.000Z\",\r\n  \"data_termino\": \"2025-04-02T00:00:00.000Z\",\r\n  \"data_previsao_termino\": \"2025-04-02T00:00:00.000Z\",\r\n  \"plano\": 7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/locacao",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"locacao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9 - Informar devolução da moto",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik1ldVNlcnZpZG9yIiwiYXVkIjoiTWluaGFBcGlDbGllbnRlcyIsImV4cCI6MTcwMDAwMDAwMH0.yJjxOstBkg3HbMwv6tfEDmPBH1yHVGJdJxV8iHkRM1U",
+						"description": "Valid",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik91dHJvU2VydmVyIiwiYXVkIjoiT3V0cmFzQXVkaWVuY2lhcyIsImV4cCI6MTcwMDAwMDAwMH0.TQws0tlyrLEUzEF4FZz1cVhOYN9u03TIXVHzTBLZ7fQ",
+						"description": "Invalid",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"data_devolucao\": \"2025-03-30T18:04:34.555Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/locacao/{{rentalId}}/devolucao",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"locacao",
+						"{{rentalId}}",
+						"devolucao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10 - Consultar Aluguel",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik1ldVNlcnZpZG9yIiwiYXVkIjoiTWluaGFBcGlDbGllbnRlcyIsImV4cCI6MTcwMDAwMDAwMH0.yJjxOstBkg3HbMwv6tfEDmPBH1yHVGJdJxV8iHkRM1U",
+						"description": "Valid",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpvw6NvIERvZSIsImlzcyI6Ik91dHJvU2VydmVyIiwiYXVkIjoiT3V0cmFzQXVkaWVuY2lhcyIsImV4cCI6MTcwMDAwMDAwMH0.TQws0tlyrLEUzEF4FZz1cVhOYN9u03TIXVHzTBLZ7fQ",
+						"description": "Invalid",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/locacao/{{rentalId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"locacao",
+						"{{rentalId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:5001",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:44361",
+			"type": "string"
+		},
+		{
+			"key": "entregador-identificador",
+			"value": "entregador1",
+			"type": "string"
+		},
+		{
+			"key": "moto-identificador",
+			"value": "moto1",
+			"type": "string"
+		},
+		{
+			"key": "locacao",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "rentalId",
+			"value": "ee06ef9f-4ea8-4277-9dad-ff64b37620ae",
+			"type": "default"
+		}
+	]
+}
