@@ -1,4 +1,6 @@
-﻿namespace MotorCycleRentail.Application.Usecase;
+﻿using MotorCycleRentail.Domain.Entities;
+
+namespace MotorCycleRentail.Application.Usecase;
 
 public class RemoveMotorcycleUsecase : IRemoveMotorcycleUsecase
 {
@@ -18,14 +20,11 @@ public class RemoveMotorcycleUsecase : IRemoveMotorcycleUsecase
         if (string.IsNullOrEmpty(id))
             return false;
 
-        if (!Guid.TryParse(id, out Guid idGuid))
-            return false;
-
-        var motorcycle = await _motorcycleRepository.GetByIdAsync(idGuid, ct);
+        var motorcycle = await _motorcycleRepository.GetByIdentifierAsync(id, ct);
         if (motorcycle is null)
             return false;
 
-        await _motorcycleRepository.DeleteById(idGuid, ct);
+        await _motorcycleRepository.DeleteById(motorcycle.Id, ct);
 
         return true;
     }

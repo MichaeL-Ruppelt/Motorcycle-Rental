@@ -23,10 +23,8 @@ public class ErrorHandler
 
 public static class ErrorHandlerExtensions
 {
-    public static void AddErrorHandler(this IHostApplicationBuilder builder)
+    public static void AddErrorHandler(this IServiceCollection services)
     {
-        var logger = builder.Services.BuildServiceProvider().GetRequiredService<ILogger<ErrorHandler>>();
-        var errorHandler = new ErrorHandler(logger);
-        errorHandler.HandleUnhandledExceptions();
+        services.AddSingleton<ErrorHandler>();
     }
 }

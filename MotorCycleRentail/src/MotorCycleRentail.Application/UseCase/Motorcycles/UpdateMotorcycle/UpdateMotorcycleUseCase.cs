@@ -16,17 +16,18 @@ public class UpdateMotorcycleUsecase : IUpdateMotorcycleUsecase
     }
     #endregion ctor
 
-    public async Task<bool> ExecuteAsync(string id, UpdateMotorcycleRequest request, CancellationToken ct = default)
+    public async Task<bool> ExecuteAsync(string identifier, UpdateMotorcycleRequest request, CancellationToken ct = default)
     {
-        if (string.IsNullOrEmpty(id))
+        if (string.IsNullOrEmpty(identifier))
         {
             _logger.LogError($"Id nulo ou vazio");
             return false;
         }
 
-        if (!Guid.TryParse(id, out Guid idGuid))
+        var motorcycle = await _motorcycleRepository.GetByIdentifierAsync(identifier, ct);
+        if (motorcycle is null)
         {
-            _logger.LogError($"Id não é válido");
+            _logger.LogError($"Motorcicle not found. Identifier: {identifier}");
             return false;
         }
 
@@ -36,11 +37,16 @@ public class UpdateMotorcycleUsecase : IUpdateMotorcycleUsecase
             return false;
         }
 
-        var motorcycle = await _motorcycleRepository.GetByIdAsync(idGuid, ct);
-        if (motorcycle is null)
-            return false;
+        string licensePlate = new string(request.LicensePlate.Where(c => char.IsLetterOrDigit(c)).ToArray());
 
-        motorcycle.LicensePlate = new string(request.LicensePlate.Where(c => char.IsLetterOrDigit(c)).ToArray());
+        Motorcycle motorcicleWithLicencePlate = await _motorcycleRepository.GetByLicensePlate(licensePlate, ct);
+        if (motorcicleWithLicencePlate is not null)
+        {
+            _logger.LogError($"LicensePlate already exist. LicencePlate: {request}");
+            return false;
+        }
+
+        motorcycle.LicensePlate = licensePlate;
 
         await _motorcycleRepository.UpdateAsync(motorcycle, ct);
 

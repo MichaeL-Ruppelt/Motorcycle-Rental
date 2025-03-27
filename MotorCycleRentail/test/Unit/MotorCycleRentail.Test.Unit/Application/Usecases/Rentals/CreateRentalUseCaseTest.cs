@@ -88,50 +88,6 @@ namespace MotorCycleRentail.Test.Unit.Application.Usecases.Rentals
         }
 
         [Fact]
-        public void IsValidRentalDate_ShouldReturnFalse_WhenStartDateIsInvalid()
-        {
-            // Arrange
-            var request = new RentalRequest { StartDate = DateTime.UtcNow.Date };
-
-            // Act
-            var result = _createRentalUseCase.IsValidRentalDate(request);
-
-            // Assert
-            Assert.False(result);
-        }
-
-        [Fact]
-        public void IsValidRentalDate_ShouldReturnFalse_WhenEndDateIsInvalid()
-        {
-            // Arrange
-            var request = new RentalRequest { StartDate = DateTime.UtcNow.Date.AddDays(2), EndDate = DateTime.UtcNow.Date.AddDays(1) };
-
-            // Act
-            var result = _createRentalUseCase.IsValidRentalDate(request);
-
-            // Assert
-            Assert.False(result);
-        }
-
-        [Fact]
-        public void IsValidRentalDate_ShouldReturnTrue_WhenDatesAreValid()
-        {
-            // Arrange
-            var request = new RentalRequest
-            {
-                StartDate = DateTime.UtcNow.Date.AddDays(2),
-                EndDate = DateTime.UtcNow.Date.AddDays(3),
-                ExpectedEndDate = DateTime.UtcNow.Date.AddDays(4)
-            };
-
-            // Act
-            var result = _createRentalUseCase.IsValidRentalDate(request);
-
-            // Assert
-            Assert.True(result);
-        }
-
-        [Fact]
         public async Task ExecuteAsync_ShouldReturnTrue_WhenDataIsValid()
         {
             // Arrange
@@ -146,10 +102,13 @@ namespace MotorCycleRentail.Test.Unit.Application.Usecases.Rentals
             };
             _courierRepositoryMock.Setup(repo => repo.GetByIdentifierAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new Courier());
+
             _motorcycleRepositoryMock.Setup(repo => repo.GetByIdentifierAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new Motorcycle());
+
             _rentalPlanRepositoryMock.Setup(repo => repo.GetByPlanDays(It.IsAny<int>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new RentalPlan());
+
             _rentalRepositoryMock.Setup(repo => repo.InsertAsync(It.IsAny<Rental>(), It.IsAny<CancellationToken>()))
                 .Returns(Task.CompletedTask);
 

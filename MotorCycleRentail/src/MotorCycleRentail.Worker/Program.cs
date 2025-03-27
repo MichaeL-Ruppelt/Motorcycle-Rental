@@ -16,13 +16,13 @@ namespace MotorCycleRentail.Worker
                 //Determina o limite de tempo de empera ao finalizar um pod.
                 options.ShutdownTimeout = TimeSpan.FromSeconds(60);
             });
-            builder.AddErrorHandler();
             builder.Services.AddSingleton<DbMigrationConfigurator>();
 
             var host = builder.Build();
 
             var migrationConfigurator = host.Services.GetRequiredService<DbMigrationConfigurator>();
             migrationConfigurator.ApplyMigrations(host.Services);
+
             host.Run();
         }
     }

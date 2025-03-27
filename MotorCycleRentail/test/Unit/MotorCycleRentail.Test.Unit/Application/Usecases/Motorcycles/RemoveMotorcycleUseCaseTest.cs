@@ -73,9 +73,9 @@ namespace MotorCycleRentail.Test.Unit.Application.Usecases.Motorcycles
             // Arrange
             string id = Guid.NewGuid().ToString();
             var motorcycle = new Motorcycle { Id = Guid.Parse(id) };
-            _motorcycleRepositoryMock.Setup(repo => repo.GetByIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
+            _motorcycleRepositoryMock.Setup(repo => repo.GetByIdentifierAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(motorcycle);
-            _motorcycleRepositoryMock.Setup(repo => repo.DeleteById(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
+            _motorcycleRepositoryMock.Setup(repo => repo.DeleteById(motorcycle.Id, It.IsAny<CancellationToken>()))
                 .Returns(Task.CompletedTask);
 
             // Act

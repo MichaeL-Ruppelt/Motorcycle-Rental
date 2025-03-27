@@ -71,7 +71,7 @@ public class MotorcycleRegistrationConsumer : IConsumer<Motorcycle>
     /// </summary>
     private async Task SendToErrorQueueAsync(ConsumeContext<Motorcycle> context)
     {
-        var errorQueueName = $"{context.ReceiveContext.InputAddress.AbsolutePath}_error";
+        var errorQueueName = $"{context.ReceiveContext.InputAddress.AbsolutePath}error";
         var errorQueue = await _sendEndpointProvider.GetSendEndpoint(new Uri($"queue:{errorQueueName}"));  // URL da fila de erro
         await errorQueue.Send(context.Message);  // Enviar a mensagem original para a fila de erro
     }

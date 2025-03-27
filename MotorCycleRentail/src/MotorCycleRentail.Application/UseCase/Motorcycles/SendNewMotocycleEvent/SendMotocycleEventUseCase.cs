@@ -34,7 +34,7 @@ public class SendMotocycleEventUseCase : ISendMotocycleEventUseCase
         if (!IsDataValid(newMotorcycle))
             return false;
 
-        if (await MotorcycleExist(request.LicensePlate, ct))
+        if (await MotorcycleExist(request.LicensePlate, request.Identifier, ct))
             return false;
 
         await _messagePublisher.SendMessage(newMotorcycle, ct);
@@ -74,12 +74,19 @@ public class SendMotocycleEventUseCase : ISendMotocycleEventUseCase
 
         return true;
     }
-    private async Task<bool> MotorcycleExist(string licensePlate, CancellationToken ct)
+    private async Task<bool> MotorcycleExist(string licensePlate, string identifier, CancellationToken ct)
     {
         var motorcycle = await _motorcycleRepository.GetByLicensePlate(licensePlate, ct);
         if (motorcycle is not null)
         {
             _logger.LogWarning($"Motorcycle with license plate {licensePlate} already exists");
+            return true;
+        }
+
+        motorcycle = await _motorcycleRepository.GetByIdentifierAsync(identifier, ct);
+        if (motorcycle is not null)
+        {
+            _logger.LogWarning($"Motorcycle with identifier {identifier} already exists");
             return true;
         }
 

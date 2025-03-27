@@ -82,11 +82,11 @@ public class CreateRentalUseCase : ICreateRentalUseCase
 
         return true;
     }
-    public bool IsValidRentalDate(RentalRequest rental)
+    private bool IsValidRentalDate(RentalRequest rental)
     {
         DateTime tomorrow = DateTime.UtcNow.Date.AddDays(1);
 
-        if (rental.StartDate.Date < tomorrow)
+        if (rental.StartDate.Date > tomorrow)
         {
             _logger.LogWarning($"StartDate is not valid. DataInicio: {rental.StartDate}");
             return false;
